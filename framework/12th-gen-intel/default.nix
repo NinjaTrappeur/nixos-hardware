@@ -6,11 +6,7 @@
   ];
 
   boot.kernelParams = [
-    # For Power consumption
-    # https://kvark.github.io/linux/framework/2021/10/17/framework-nixos.html
-    "mem_sleep_default=deep"
-    # For Power consumption
-    # https://community.frame.work/t/linux-battery-life-tuning/6665/156
+    "acpi_osi=\"!Windows 2020\""
     "nvme.noacpi=1"
     # Workaround iGPU hangs
     # https://discourse.nixos.org/t/intel-12th-gen-igpu-freezes/21768/4
@@ -20,7 +16,7 @@
   # This enables the brightness and airplane mode keys to work
   # https://community.frame.work/t/12th-gen-not-sending-xf86monbrightnessup-down/20605/11
   boot.blacklistedKernelModules = [ "hid-sensor-hub" ];
-  
+
   # Further tweak to ensure the brightness and airplane mode keys work
   # https://community.frame.work/t/responded-12th-gen-not-sending-xf86monbrightnessup-down/20605/67
   systemd.services.bind-keys-driver = {
